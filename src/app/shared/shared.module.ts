@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ResponsiveHelperComponent } from './components/responsive-helper/responsive-helper.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ResponsiveHelperComponent
+  ],
   imports: [CommonModule]
 })
 export class SharedModule { }
