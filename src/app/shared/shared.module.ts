@@ -8,6 +8,7 @@ import { ResponsiveHelperComponent } from './components/responsive-helper/respon
   declarations: [
     ResponsiveHelperComponent
   ],
-  imports: [CommonModule]
+  imports: [CommonModule],
+  exports: [ResponsiveHelperComponent]
 })
 export class SharedModule { }
