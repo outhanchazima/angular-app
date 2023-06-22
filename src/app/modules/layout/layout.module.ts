@@ -6,6 +6,7 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -13,7 +14,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   declarations: [
     LayoutComponent,
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [CommonModule, LayoutRoutingModule, AngularSvgIconModule.forRoot(), SharedModule]
 })
