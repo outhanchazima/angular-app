@@ -7,7 +7,7 @@ export const authenticationGuard: CanActivateFn = (route, state) => {
   const localStorageService = inject(LocalStorageService)
 
   if (!localStorageService.getAccessToken()) {
-      router.navigateByUrl('/auth/login');
+      router.navigateByUrl('/auth/sign-in');
       return false;
     }
 
