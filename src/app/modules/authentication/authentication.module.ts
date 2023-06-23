@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularSvgIconModule } from 'angular-svg-icon';
@@ -18,6 +19,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
   imports: [
     CommonModule,
     AuthenticationRoutingModule,
+    HttpClientModule,
     AngularSvgIconModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
