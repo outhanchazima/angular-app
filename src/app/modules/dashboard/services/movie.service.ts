@@ -27,7 +27,7 @@ export class MovieService {
     const params = new HttpParams().set('apikey', 'f91ddec1').set('s', searchTerm.toString())
 
     return this.http.get<any>(
-      "http://www.omdbapi.com",
+      "https://www.omdbapi.com",
       {
         params: params
       }
