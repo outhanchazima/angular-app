@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { SwahiliTranslationPipe } from 'src/app/core/pipes/swahili-translator.pipe';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MovieCardComponent } from './components/movie/movie-card/movie-card.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -15,7 +16,8 @@ import { MovieService } from './services/movie.service';
   declarations: [
     DashboardComponent,
     UpComingComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    SwahiliTranslationPipe
   ],
   imports: [
     CommonModule,
