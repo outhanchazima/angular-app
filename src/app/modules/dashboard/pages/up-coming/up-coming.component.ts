@@ -9,16 +9,17 @@ export class UpComingComponent implements OnInit {
   public movies: any[] = []
 
   constructor(private moviesService: MovieService) {
-      }
-
-  ngOnInit(): void {
     this.moviesService.upComingMovies().subscribe({
       next: (response) => {
         console.log(response);
-        this.movies = [];
+        this.movies = [response];
       },
       error: (e) => console.error(e),
       complete: () => console.info('complete')
     })
+  }
+
+  ngOnInit(): void {
+    console.log("moviee--------")
   }
 }
