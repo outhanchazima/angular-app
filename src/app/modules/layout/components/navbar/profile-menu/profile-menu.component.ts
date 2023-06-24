@@ -27,5 +27,9 @@ export class ProfileMenuComponent implements OnInit {
     this.email = this.localStorageService.getLocalStorage("email")
   }
 
+  public logOut() {
+    this.localStorageService.removeAccessToken();
+  }
+
 
 }

@@ -6,7 +6,7 @@
     <div class="relative h-10">
       <div class="flex items-center" *ngIf="showSideBar$ | async">
         <a class="flex items-center justify-center rounded bg-primary-500 p-2 focus:outline-none focus:ring-1">
-          <svg-icon src="assets/icons/logo.svg"> </svg-icon>
+          <svg-icon src="/assets/icons/logo.svg"> </svg-icon>
         </a>
         <b class="ml-1 pl-2 text-sm font-bold dark:text-night-50">
           Angular App
@@ -37,13 +37,16 @@
       </svg-icon>
 
       <a
-        routerLink="/auth"
+        (click)="logOut()"
+        routerLink="/auth/sign-in"
         class="ml-3 truncate text-xs font-semibold tracking-wide text-gray-600 focus:outline-none dark:text-night-100">
         Sign out
       </a>
 
       <div class="fixed w-full" *ngIf="!(showSideBar$ | async)">
         <span
+          (click)="logOut()"
+          routerLink="/auth/sign-in"
           class="z-1 absolute left-12 -top-4 w-auto min-w-max origin-left scale-0 rounded-md bg-black p-2 text-xs font-bold text-white shadow-md transition-all duration-200 group-hover:scale-100 dark:bg-white dark:text-night-900">
           Sign out
         </span>
