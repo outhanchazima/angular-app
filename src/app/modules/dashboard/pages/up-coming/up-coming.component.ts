@@ -11,13 +11,7 @@ export class UpComingComponent implements OnInit {
 
 
   constructor(private moviesService: MovieService) {
-    this.moviesService.upComingMovies(this.currentPage).subscribe({
-      next: (resp) => {
-        this.movies = resp.results;
-      },
-      error: (e) => console.error(e),
-      complete: () => console.info('complete')
-    })
+    this.fetchMovieData()
   }
 
   fetchMovieData(): void {
