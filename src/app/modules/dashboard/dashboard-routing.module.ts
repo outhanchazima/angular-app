@@ -9,7 +9,7 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       { path: 'upcoming', component: UpComingComponent },
-      { path: '', redirectTo: '/upcoming', pathMatch: 'full' },
+      { path: '', redirectTo: 'upcoming', pathMatch: 'full' },
     ],
   },
 ];
