@@ -7,6 +7,7 @@ import { MovieCardComponent } from './components/movie/movie-card/movie-card.com
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { UpComingComponent } from './pages/up-coming/up-coming.component';
+import { MovieService } from './services/movie.service';
 
 
 
@@ -22,6 +23,7 @@ import { UpComingComponent } from './pages/up-coming/up-coming.component';
     SharedModule,
     HttpClientModule,
     AngularSvgIconModule.forRoot(),
-  ]
+  ],
+  providers: [MovieService],
 })
 export class DashboardModule { }

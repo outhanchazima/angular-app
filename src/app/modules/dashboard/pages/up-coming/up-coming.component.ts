@@ -7,19 +7,38 @@ import { MovieService } from '../../services/movie.service';
 })
 export class UpComingComponent implements OnInit {
   public movies: any[] = []
+  currentPage = 1
+
 
   constructor(private moviesService: MovieService) {
-    this.moviesService.upComingMovies().subscribe({
-      next: (response) => {
-        console.log(response);
-        this.movies = [response];
+    this.moviesService.upComingMovies(this.currentPage).subscribe({
+      next: (resp) => {
+        this.movies = resp.results;
       },
       error: (e) => console.error(e),
       complete: () => console.info('complete')
     })
   }
 
-  ngOnInit(): void {
-    console.log("moviee--------")
+  fetchMovieData(): void {
+    this.moviesService.upComingMovies(this.currentPage).subscribe({
+      next: (resp) => {
+        this.movies = resp.results;
+      },
+      error: (e) => console.error(e),
+      complete: () => console.info('complete')
+    })
   }
+
+  nextPage(): void {
+    this.currentPage++;
+    this.fetchMovieData();
+  }
+
+  previousPage(): void {
+    this.currentPage--;
+    this.fetchMovieData();
+  }
+
+  ngOnInit(): void {}
 }

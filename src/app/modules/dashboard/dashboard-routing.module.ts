@@ -10,8 +10,8 @@ const routes: Routes = [
     component: DashboardComponent,
     canActivate: [authenticationGuard],
     children: [
-      { path: 'upcoming', component: UpComingComponent },
       { path: '', redirectTo: 'upcoming', pathMatch: 'full' },
+      { path: 'upcoming', component: UpComingComponent },
     ],
   },
 ];
