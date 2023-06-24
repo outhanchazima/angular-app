@@ -8,8 +8,8 @@ import { Observable } from "rxjs";
 export class MovieService {
   constructor(private http: HttpClient) {}
 
-  public upComingMovies(currentPage: number = 1): Observable<any> {
-    const qParams = new HttpParams().set('page', currentPage.toString());
+  public upComingMovies(currentPage: number = 1, limit: number = 4): Observable<any> {
+    const qParams = new HttpParams().set('page', currentPage.toString()).set("limit", limit.toString());
 
     return this.http.get<any>(
       'https://moviesdatabase.p.rapidapi.com/titles/x/upcoming',

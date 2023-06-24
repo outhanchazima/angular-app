@@ -7,7 +7,8 @@ import { MovieService } from '../../services/movie.service';
 })
 export class UpComingComponent implements OnInit {
   public movies: any[] = []
-  currentPage = 1
+  public currentPage = 1
+  public limit = 4
 
 
   constructor(private moviesService: MovieService) {
@@ -15,7 +16,7 @@ export class UpComingComponent implements OnInit {
   }
 
   fetchMovieData(): void {
-    this.moviesService.upComingMovies(this.currentPage).subscribe({
+    this.moviesService.upComingMovies(this.currentPage, this.limit).subscribe({
       next: (resp) => {
         this.movies = resp.results;
       },
