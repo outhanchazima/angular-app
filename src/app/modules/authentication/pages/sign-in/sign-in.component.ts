@@ -46,7 +46,7 @@ export class SignInComponent implements OnInit {
     if (email === Credentials.EMAIL && password === Credentials.PASSWORD) {
       localStorage.setItem('token', JSON.stringify("fashjhfajhfahfhkfahfkahfakfhdfja"));
       localStorage.setItem("email", JSON.stringify(email))
-      this._router.navigate(['/']);
+      this._router.navigate(['dashboard/upcoming']);
     } else {
       this.isFailedSignIn = !this.isFailedSignIn;
       this.validationErrors = "invalid credentials"
