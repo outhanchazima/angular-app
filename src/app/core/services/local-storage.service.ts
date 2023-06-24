@@ -7,12 +7,12 @@ export class LocalStorageService {
   constructor() {}
 
   public setAccessToken(accessToken: string, expiredIn: number): void {
-    localStorage.setItem('accessToken', accessToken);
+    localStorage.setItem('token', accessToken);
     localStorage.setItem('expiredIn', expiredIn.toString());
   }
 
   public getAccessToken(): string | null {
-    return localStorage.getItem('accessToken');
+    return localStorage.getItem('token');
   }
 
   public removeAccessToken(): void {
