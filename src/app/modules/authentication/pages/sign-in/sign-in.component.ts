@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Credentials } from 'src/app/core/constants/auth';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,6 +12,9 @@ export class SignInComponent implements OnInit {
   signInForm!: FormGroup;
   submitted = false;
   passwordTextType!: boolean;
+  isFailedSignIn!: boolean;
+
+  validationErrors: string = ""
 
   constructor(private readonly _formBuilder: FormBuilder, private readonly _router: Router) {}
 
@@ -38,6 +42,16 @@ export class SignInComponent implements OnInit {
       return;
     }
 
-    this._router.navigate(['/']);
+    // Check if email and password equal email from credential enum emaul if true redirect else raise error
+    if (email === Credentials.EMAIL && password === Credentials.PASSWORD) {
+      localStorage.setItem('token', JSON.stringify("fashjhfajhfahfhkfahfkahfakfhdfja"));
+      localStorage.setItem("email", JSON.stringify(email))
+      this._router.navigate(['/']);
+    } else {
+      this.isFailedSignIn = !this.isFailedSignIn;
+      this.validationErrors = "invalid credentials"
+      return;
+    }
+
   }
 }
