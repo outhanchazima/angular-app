@@ -24,12 +24,12 @@ export class MovieService {
   }
 
   public searchMovie(searchTerm: string, limit: number = 4): Observable<any> {
-    const params = new HttpParams().set('limit', limit.toString()).set('s', searchTerm.toString())
+    const params = new HttpParams().set('apikey', 'f91ddec1').set('s', searchTerm.toString())
 
     return this.http.get<any>(
       "http://www.omdbapi.com",
       {
-        params
+        params: params
       }
     )
   }

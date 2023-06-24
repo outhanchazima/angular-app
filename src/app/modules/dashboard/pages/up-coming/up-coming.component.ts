@@ -64,8 +64,7 @@ export class UpComingComponent implements OnInit {
 
     this.moviesService.searchMovie(this.searchQuery).subscribe({
       next: (resp) => {
-        console.log(resp.result)
-        this.movies = resp.results;
+        this.movies = resp.Search;
         this.isSearching = false;
       },
       error: (e) => {

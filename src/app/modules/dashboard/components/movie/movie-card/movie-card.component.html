@@ -1,5 +1,5 @@
 <!-- Card -->
-<div class="flex h-[420px] flex-col rounded-lg bg-white p-8 dark:bg-night-700">
+<div *ngIf="movie._id" class="flex h-[420px] flex-col rounded-lg bg-white p-8 dark:bg-night-700">
   <!-- Image -->
   <div
     [ngStyle]="{ 'background-image': 'url(' + movie.primaryImage.url + ')' }"
@@ -8,6 +8,26 @@
   <h2 class="text-md mt-6 font-semibold text-gray-900 dark:text-night-50">{{ movie.titleText.text }}</h2>
   <div class="flex items-end justify-between text-sm font-semibold text-gray-400 dark:text-night-300">
     Release Date: {{ movie.releaseDate.day }}-{{movie.releaseDate.month}}-{{movie.releaseDate.year}}
+  </div>
+  <!-- Buttons -->
+  <div class="mt-6 flex items-center justify-between">
+    <button
+      class="flex-none rounded-md bg-primary-500 px-4 py-2.5 text-xs font-semibold text-white hover:bg-primary-600">
+      View More
+    </button>
+  </div>
+</div>
+<!-- end Card -->
+
+<!-- Card -->
+<div *ngIf="movie.imdbID" class="flex h-[420px] flex-col rounded-lg bg-white p-8 dark:bg-night-700">
+  <!-- Image -->
+  <div [ngStyle]="{ 'background-image': 'url(' + movie.Poster + ')' }"
+    class="h-[240px] cursor-pointer rounded-md bg-cover transition duration-150 ease-in-out hover:opacity-75"></div>
+  <!-- Description  -->
+  <h2 class="text-md mt-6 font-semibold text-gray-900 dark:text-night-50">{{ movie.Title }}</h2>
+  <div class="flex items-end justify-between text-sm font-semibold text-gray-400 dark:text-night-300">
+    Release Date: {{ movie.Year }}
   </div>
   <!-- Buttons -->
   <div class="mt-6 flex items-center justify-between">
