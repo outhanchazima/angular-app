@@ -1,11 +1,28 @@
 <div class="mx-auto px-4 py-4 sm:px-8 lg:container">
   <div class="flex justify-center mt-4">
+    <input type="text" class="w-64 px-4 py-2 rounded border" placeholder="Search movies..." (input)="onSearchInput($event)">
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+    <ng-container *ngIf="isSearching">
+      <div class="animate-pulse bg-gray-200 rounded-lg h-64"></div>
+      <div class="animate-pulse bg-gray-200 rounded-lg h-64"></div>
+      <div class="animate-pulse bg-gray-200 rounded-lg h-64"></div>
+      <div class="animate-pulse bg-gray-200 rounded-lg h-64"></div>
+    </ng-container>
+    <ng-container *ngIf="!isSearching && movies.length > 0; else noResults">
+      <app-movie-card *ngFor="let movie of movies; let i = index" [movie]="movie"></app-movie-card>
+    </ng-container>
+  </div>
+
+  <div class="flex justify-left mt-4">
     <button class="bg-primary-500 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded" (click)="previousPage()">Previous</button>
     <span class="mx-4 font-bold py-2 px-4"> Page {{currentPage}} </span>
     <button class="bg-primary-500 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded" (click)="nextPage()">Next</button>
   </div>
-  <br>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    <app-movie-card *ngFor="let movie of movies; let i = index" [movie]="movie" ></app-movie-card>
-  </div>
 </div>
+
+
+<ng-template #noResults>
+  <p class="text-center mt-4">No results found.</p>
+</ng-template>
