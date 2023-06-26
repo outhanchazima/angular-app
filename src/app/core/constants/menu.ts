@@ -11,7 +11,10 @@ export class Menu {
           icon: 'assets/icons/view-grid.svg',
           label: 'Dashboard',
           route: '/dashboard',
-          children: [{ label: 'Up Coming', route: '/dashboard/upcoming' }],
+          children: [
+            { label: 'Up Coming', route: '/dashboard/upcoming' },
+            { label: "Suggestions", route: '/dashboard/suggestions'}
+          ],
         },
       ],
     },
