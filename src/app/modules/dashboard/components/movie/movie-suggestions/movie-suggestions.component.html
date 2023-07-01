@@ -4,6 +4,7 @@
       <h2 class="text-md font-bold text-gray-900 dark:text-night-50">Movie Suggestions</h2>
     </div>
     <button
+      (click)="toggleShowNewMovieModal()"
       class="flex-none rounded-md bg-primary-500 px-4 py-2.5 text-xs font-semibold text-white hover:bg-primary-600">
       New Suggestion
     </button>
@@ -45,5 +46,70 @@
       </tbody>
       <!--end::Table body-->
     </table>
+  </div>
+
+  <!-- Form Modal Component Add New Suggestion -->
+  <div class="fixed inset-0 flex items-center justify-center" *ngIf="showNewMovieModal">
+    <div class="rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800">
+      <h2 class="mb-4 text-lg font-semibold">Add New Suggestion</h2>
+      <form [formGroup]="suggestionForm" (onSubmit)="addNewSuggestion()">
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="title">Title</label>
+          <input class="form-input mt-1 block w-full" type="text" id="title" formControlName="title" required />
+          <div
+            *ngIf="suggestionForm.controls['title'].invalid && suggestionForm.controls['title'].touched"
+            class="mt-1 text-red-500">
+            Title is required.
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="movieType">Movie Type</label>
+          <input class="form-input mt-1 block w-full" type="text" id="movieType" formControlName="movieType" required />
+          <div
+            *ngIf="suggestionForm.controls['movieType'].invalid && suggestionForm.controls['movieType'].touched"
+            class="mt-1 text-red-500">
+            Movie Type is required.
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="reason">Reason</label>
+          <textarea class="form-textarea mt-1 block w-full" id="reason" formControlName="reason" required></textarea>
+          <div
+            *ngIf="suggestionForm.controls['reason'].invalid && suggestionForm.controls['reason'].touched"
+            class="mt-1 text-red-500">
+            Reason is required.
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="image">Image</label>
+          <input
+            class="peer block"
+            type="file"
+            id="image"
+            formControlName="image"
+            (change)="handleImageUpload($event)"
+            required />
+          <div
+            *ngIf="suggestionForm.controls['image'].invalid && suggestionForm.controls['image'].touched"
+            class="mt-1 text-red-500">
+            Image is required.
+          </div>
+        </div>
+        <div class="flex justify-end">
+          <button
+            type="submit"
+            class="rounded-md bg-primary-500 px-4 py-2 font-semibold text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+            [disabled]="suggestionForm.invalid">
+            Submit
+          </button>
+          <button
+            type="button"
+            class="ml-2 rounded-md border border-gray-300 px-4 py-2 font-semibold text-gray-700 hover:bg-gray-200 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700"
+            (click)="toggleShowNewMovieModal()">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

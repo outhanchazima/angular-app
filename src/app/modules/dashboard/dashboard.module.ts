@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { SwahiliTranslationPipe } from 'src/app/core/pipes/swahili-translator.pipe';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -11,8 +12,6 @@ import { DashboardComponent } from './dashboard.component';
 import { SuggestionsComponent } from './pages/suggestions/suggestions.component';
 import { UpComingComponent } from './pages/up-coming/up-coming.component';
 import { MovieService } from './services/movie.service';
-
-
 
 @NgModule({
   declarations: [
@@ -29,7 +28,9 @@ import { MovieService } from './services/movie.service';
     SharedModule,
     HttpClientModule,
     AngularSvgIconModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [MovieService],
 })
-export class DashboardModule { }
+export class DashboardModule {}
